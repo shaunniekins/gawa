@@ -81,7 +81,20 @@ const toggleCompletion = (task) => {
               alt="Gawa Logo" />
           </div> -->
 
-          <ul class="w-full flex flex-col gap-3">
+          <ul
+            :class="
+              tasks.length === 0 && 'h-full flex justify-center items-center'
+            "
+            class="w-full flex flex-col gap-3">
+            <div
+              v-if="tasks.length === 0"
+              class="flex flex-col justify-center items-center gap-2">
+              <img
+                class="w-52 object-cover rounded-full opacity-55"
+                src="/assets/images/clipboard.svg"
+                alt="Gawa Logo" />
+              <p class="text-sm text-gray-500">No tasks</p>
+            </div>
             <li
               class="w-full py-2 flex justify-between items-center"
               v-for="(task, index) in tasks"
